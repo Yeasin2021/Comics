@@ -86,11 +86,18 @@
                         </div>
                         <a href="#">Permalink => <span id="text"></span></a>
                     </div>
-                    <div class="form-group">
+                   <div class="form-group">
                         <label for="type">Comics Type</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fas fa-tape"></i></div>
-                            <input type="text" class="form-control" id="type" name="comics_category" value="{{ $edit->comics_category }}"/>
+                            <select class="form-control" name="comics_category_id">
+                            
+                                @foreach ($comics as $item)
+                                     <option value="{{ $item->id }}" {{ $edit->id == $item->id ? 'selected':'' }}>{{$item->comics_category }}</option>
+                                @endforeach
+                              
+                            </select>
+                            
                         </div>
                     </div>
                     <div class="form-group">

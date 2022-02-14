@@ -10,9 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 
 
-// Route::get('admin-login',function(){
-//     return view('backend.login');
-// })->name('login');
+
 
 Route::get('login',[AuthController::class,'loginForm'])->name('login-form');
 Route::post('admin-post',[AuthController::class,'login'])->name('login');
@@ -20,12 +18,6 @@ Route::post('admin-post',[AuthController::class,'login'])->name('login');
 
 
 
-// Route::group(['middleware' => 'admin'],function () {
-
-
-
-
-// });
 
 Route::group(['middleware' => 'authuser'],function () {
 
@@ -74,33 +66,10 @@ Route::any('/admin-blog-details-{id}',[AdminController::class,'singleBlogDetails
 
 
 
-//for testing 
-// Route::any('/admin-blog-count-{id}',function($id){
-    
-    
-//     // $a = 10;
-//     // $b= 20;
-//     // $c= $a+$b;
-//     $count = Count::first()->count;
-//     Count::where('id',$id)->increment('count');
-//     toastr()->success('count '.$count);
-//     // return redirect()->back()->with('theme.page.blog',compact('count'));
-//     // return view('theme.app',compact('count'));
-//     return redirect()->back();
-// })->name('count');
-
-//  $lol = '';
-// Route::get('/check',function(){return $lol = action([AdminController::class,'aboutContentForm']);});
-
-// Route::get($lol,function($lol){
-//      echo $lol;
-// });
 
 
 
-$link = '{slug}';
-Route::get('url',[AdminController::class,'Url'])->name('url');
-Route::get('news/{slug}',[AdminController::class,'urlTest'])->name('template');
+
 
 
 
@@ -134,6 +103,9 @@ Route::post('admin-comics-category-update-{id}',[ComicsController::class,'catego
 Route::get('admin-comics-category-delete-{id}',[ComicsController::class,'categoryDelete'])->name('comics-category-delete');
 Route::any('admin-comics-category-published-{id}',[ComicsController::class,'categoryPublished'])->name('comics-category-published');
 Route::any('admin-comics-category-unpublished-{id}',[ComicsController::class,'categoryUnpublished'])->name('comics-category-unpublished');
+
+
+
 
 
 

@@ -28,9 +28,10 @@ class FrontEndController extends Controller
         $slider = $this->frontEndInterface->frontEndSlider();
         $data = $this->frontEndInterface->frontEndAboutMe();
         $blog = $this->frontEndInterface->frontEndBlog();
+        $comics = $this->frontEndInterface->frontEndComics();
 
         
-        return view('theme.app',compact('slider','data','blog'));
+        return view('theme.app',compact('slider','data','blog','comics'));
     }
 
     

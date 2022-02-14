@@ -33,7 +33,6 @@ class ComicsController extends Controller
         
         $validator = Validator::make($request->all(), [
             'comics_title' => 'required|unique:comics',
-            
             'comics_link' => 'required',
             'comics_author' => 'required',
             'comics_description' => 'required',
@@ -95,7 +94,8 @@ class ComicsController extends Controller
 
     public function comicsEdit($id){
         $edit = Comics::find($id);
-        return view('backend.pages.comics.edit',compact('edit'));
+        $comics = ComicsCategory::all();
+        return view('backend.pages.comics.edit',compact('edit','comics'));
 
     }
 
@@ -367,3 +367,27 @@ class ComicsController extends Controller
 
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

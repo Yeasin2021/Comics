@@ -5,8 +5,10 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>DevFolio Bootstrap Portfolio Template - Index</title>
+  @php
+    $app_name = App\Models\AppName::first();
+  @endphp
+  <title>{{ $app_name->app_name }}</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 

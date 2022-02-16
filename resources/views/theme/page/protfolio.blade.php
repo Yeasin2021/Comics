@@ -22,12 +22,14 @@
           @foreach ($comics as $key=>$item)
               <div class="col-md-4">
             <div class="work-box">
-            @foreach (json_decode($item->image,true) as $pic)
+           
+            @foreach (json_decode($item->image,true) as $key => $pic)
               <a href="{{asset('image/comics_image/'.$pic)}}" data-gall="portfolioGallery" class="venobox">
                 <div class="work-img">
                   <img src="{{asset('image/comics_image/'.$pic)}}" alt="" class="img-fluid">
                 </div>
               </a>
+              @break
             @endforeach
               
               <div class="work-content">

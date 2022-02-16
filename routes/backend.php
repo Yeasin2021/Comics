@@ -105,6 +105,10 @@ Route::any('admin-comics-category-published-{id}',[ComicsController::class,'cate
 Route::any('admin-comics-category-unpublished-{id}',[ComicsController::class,'categoryUnpublished'])->name('comics-category-unpublished');
 
 
+Route::get('admin-app-name-edit-{id}',[ComicsController::class,'appNameEdit'])->name('comics-app-name-edit');
+Route::post('admin-app-name-update-{id}',[ComicsController::class,'appNameUpdate'])->name('comics-app-name-update');
+
+
 
 
 

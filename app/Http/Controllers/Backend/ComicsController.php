@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\AppName;
 use App\Models\Comics;
 use App\Models\ComicsCategory;
 use Exception;
@@ -362,6 +363,48 @@ class ComicsController extends Controller
         toastr()->success(" Successfully Comics Unpublished ");
         return back();
 
+    }
+
+    public function appNameEdit($id){
+        $edit = AppName::find($id);
+        return view('backend.pages.comics.category.app_name',compact('edit'));
+    }
+    public function appNameUpdate(Request $request,$id){
+        $validator = Validator::make($request->all(), [
+            
+            'app_name' => 'required',
+            
+        ]);
+        
+        if ($validator->fails()) {
+
+           $messages = $validator->messages();
+        
+                foreach ($messages->all() as $message)
+                {
+                    toastr()->error ( $message);
+                }
+        
+             return redirect()->back()->withInput();
+       }
+
+       try{
+
+        $update = AppName::find($id);
+        $update->update([
+             
+             'app_name' => $request->app_name,
+             
+           
+        ]);
+        toastr()->success(" Successfully App_Name is Updated ");
+        return redirect()->route('comics-category-index');
+
+        }
+        catch(Exception $error){
+        toastr()->error($error->getMessage());
+        return redirect()->back();
+        }
     }
 
 

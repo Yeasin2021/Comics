@@ -42,7 +42,7 @@
                   </div>
                   <div class="col-sm-4">
                     <div class="w-like">
-                      <a href="portfolio-details.html"> <span class="ion-ios-plus-outline"></span></a>
+                      <a href="{{ route('comics-details',$item->id) }}"> <span class="ion-ios-plus-outline"></span></a>
                     </div>
                   </div>
                 </div>

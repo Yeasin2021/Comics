@@ -407,7 +407,10 @@ class ComicsController extends Controller
         }
     }
 
-
+    public function singleComicsDetails($id){
+        $comics = Comics::find($id);
+        return view('backend.pages.comics.singleComics',compact('comics'));
+    }
     
 }
 

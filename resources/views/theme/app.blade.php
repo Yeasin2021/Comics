@@ -56,7 +56,7 @@
     <!-- End Counter Section -->
 
     <!-- ======= Portfolio Section ======= -->
-    @include('theme.page.protfolio')
+    @include('theme.page.comics')
     <!-- End Portfolio Section -->
 
     <!-- ======= Testimonials Section ======= -->

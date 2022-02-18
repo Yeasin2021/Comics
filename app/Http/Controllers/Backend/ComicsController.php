@@ -409,8 +409,23 @@ class ComicsController extends Controller
 
     public function singleComicsDetails($id){
         $comics = Comics::find($id);
-        return view('backend.pages.comics.singleComics',compact('comics'));
+        $recentPost = Comics::where('status',1)->get();
+        $visitor = Comics::where('id',$id)->increment('visitor');
+        return view('backend.pages.comics.singleComics',compact('comics','recentPost'));
     }
+
+
+
+    // use only for comics count 
+    // public function comicsCount($id){
+    //     $visitor = Comics::where('id',$id)->increment('visitor');
+    // }
+
+
+
+
+
+
     
 }
 

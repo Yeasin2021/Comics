@@ -55,7 +55,7 @@
           
          
         </div>
-        <div class="">{{$blog->links()}}</div>
+        {{$blog->links()}}
         
       </div>
     </section>

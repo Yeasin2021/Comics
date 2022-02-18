@@ -258,6 +258,8 @@ class AdminController extends Controller
 
     public function blogIndex(){
         $blog = $this->BlogInterface->blogIndex();
+        
+        
         return view('backend.pages.blog.index',compact('blog'));
     }
 
@@ -391,8 +393,9 @@ class AdminController extends Controller
 
     public function singleBlogDetails($id){
         $blog = $this->BlogInterface->singleBlogDetails($id);
+        $recentBlog = $this->BlogInterface->blogIndex()->where('status',1);
         $this->BlogInterface->count($id);
-        return view('theme.page.singleBlog',compact('blog'));
+        return view('theme.page.singleBlog',compact('blog','recentBlog'));
     }
 
 

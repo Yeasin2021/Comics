@@ -20,14 +20,13 @@ public function frontEndSlider(){
 }
 
 public function frontEndBlog(){
-    // return Count::all();
-    // return Blog::all()->paginate(1);
-     return Blog::paginate(3);
-    // return DB::table('blogs')->paginate(1);
+    
+     return Blog::where('status',1)->paginate(3);
+    
 }
 public function frontEndComics(){
     
-     return Comics::paginate(3);
+     return Comics::where('status',1)->paginate(3);
     
 }
 

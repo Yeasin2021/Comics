@@ -130,17 +130,22 @@
             <div class="widget-sidebar sidebar-search">
               
               <div class="sidebar-content">
-                 <img src="{{ asset('image/comics_image/'.$image[0] ) }}" hight="250px" width="250px"/>
+                 <img src="{{ asset('image/comics_image/'.$image[1] ) }}" hight="250px" width="250px"/>
               </div>
             </div>
             <div class="widget-sidebar">
               <h5 class="sidebar-title">Recent Post</h5>
               <div class="sidebar-content">
                 <ul class="list-sidebar">
-                  <li>
-                    <a href="#">Atque placeat maiores.</a>
-                  </li>
-                  <li>
+                @foreach ($recentPost as $key=>$item)
+                    @if ($item->id != $comics->id)
+                        <li>
+                          <a href="{{ route('comics-details',$item->id) }}">{{ $item->comics_title }}</a>
+                        </li>
+                    @endif  
+                 @endforeach
+                 
+                  {{-- <li>
                     <a href="#">Lorem ipsum dolor sit amet consectetur</a>
                   </li>
                   <li>
@@ -151,39 +156,20 @@
                   </li>
                   <li>
                     <a href="#">Nam quo autem exercitationem.</a>
-                  </li>
+                  </li> --}}
                 </ul>
               </div>
             </div>
             <div class="widget-sidebar">
               
               <div class="sidebar-content">
-                <img src="{{ asset('image/comics_image/'.$image[1]??'') }}" hight="250px" width="250px"/>
+                <img src="{{ asset('image/comics_image/'.$image[2]??'') }}" hight="250px" width="250px"/>
               </div>
             </div>
             <div class="widget-sidebar widget-tags">
-              <h5 class="sidebar-title">Tags</h5>
+              
               <div class="sidebar-content">
-                <ul>
-                  <li>
-                    <a href="#">Web.</a>
-                  </li>
-                  <li>
-                    <a href="#">Design.</a>
-                  </li>
-                  <li>
-                    <a href="#">Travel.</a>
-                  </li>
-                  <li>
-                    <a href="#">Photoshop</a>
-                  </li>
-                  <li>
-                    <a href="#">Corel Draw</a>
-                  </li>
-                  <li>
-                    <a href="#">JavaScript</a>
-                  </li>
-                </ul>
+                  <img src="{{ asset('image/comics_image/'.$image[3]??'') }}" hight="250px" width="250px"/>
               </div>
             </div>
           </div>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\AuthController;
 use App\Http\Controllers\Backend\ComicsController;
+use App\Http\Controllers\Backend\ProfileController;
 use App\Models\Count;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
@@ -111,7 +112,16 @@ Route::post('admin-app-name-update-{id}',[ComicsController::class,'appNameUpdate
 Route::any('/admin-comic-details-{id}',[ComicsController::class,'singleComicsDetails'])->name('comics-details');
 
 
+// Profile Route start here 
 
+Route::get('admin-user-profile',function(){
+    return view('backend.profile.profile');
+})->name('profile-form');
+
+Route::post('admin-profile-post',[ProfileController::class,'profileUpdate'])->name('profile-post');
+
+
+// Profile Route End  here 
 
 
 

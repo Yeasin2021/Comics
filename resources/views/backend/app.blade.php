@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <meta name="csrf_token" content="{{csrf_token()}}">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
@@ -31,6 +32,9 @@
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
+@jquery
+@toastr_js
+@toastr_render
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -135,7 +139,5 @@
     <!-- ckeditor -->
     @stack('js')
 </body>
-@jquery
-@toastr_js
-@toastr_render
+
 </html>

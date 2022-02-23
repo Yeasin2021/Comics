@@ -1,7 +1,10 @@
 @extends('backend.app')
+@section('title')
+    Admin's Slider Form
+@endsection
 
 @section('content')
-
+@include('backend.include.breadcrumb',['title' => 'Slider Form'])
 <div class="row m-3">
     <div class="col-md-6">
         <div class="card card-body">

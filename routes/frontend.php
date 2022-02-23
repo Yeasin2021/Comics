@@ -8,3 +8,8 @@ $router->get('/',[FrontEndController::class,'index','comicControllerData'])->nam
 
 // Route::get('/comics',[FrontEndController::class,'comicControllerData'])->name('comics');
 
+Route::post('subscriber',[FrontEndController::class,'subscriberMail'])->name('subscriberMail');
+
+Route::any('/comic-details-{id}',[ComicsController::class,'singleComicsDetails'])->name('comics-details');
+Route::any('/blog-details-{id}',[AdminController::class,'singleBlogDetails'])->name('blog-details');
+

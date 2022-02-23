@@ -202,6 +202,12 @@ $('#demo-btn-addrow').click(function() {
 
 
 @extends('backend.app')
+
+@section('title')
+    Admin's Comics Index  Page
+@endsection
+
+
 @push('css')
 <style>
     .table > tbody > tr > td {
@@ -210,6 +216,7 @@ $('#demo-btn-addrow').click(function() {
 </style>
 @endpush
 @section('content')
+@include('backend.include.breadcrumb',['title' => 'Comics Index  Page'])
 <div class="row m-3">
                     <div class="col-12">
                         <div class="card">

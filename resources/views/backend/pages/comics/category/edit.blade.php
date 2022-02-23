@@ -1,9 +1,12 @@
 @extends('backend.app')
+@section('title')
+    Admin's Comics Category Edit Page
+@endsection
 
 
 @section('content')
 
-
+@include('backend.include.breadcrumb',['title' => 'Comics Category Edit Page'])
 
     <div class="row m-3">
         <div class="col-md-6" style="margin:auto;">

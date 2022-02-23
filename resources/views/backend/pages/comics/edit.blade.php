@@ -1,4 +1,10 @@
 @extends('backend.app') 
+
+@section('title')
+    Admin's Comics Edit  Page
+@endsection
+
+
 @push('css')
 <style>
     * {
@@ -67,8 +73,7 @@
 <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
 @endpush @section('content')
 
-<!-- Row -->
-<!-- Row -->
+@include('backend.include.breadcrumb',['title' => 'Comics Edit  Page'])
 <form class="form p-t-20" action="{{route('comics-update',$edit->id)}}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="row m-3">

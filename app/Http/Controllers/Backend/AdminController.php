@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\AboutMe;
 use App\Models\Slider;
+use App\Models\Subscriber;
 use App\Repositories\SliderInterface;
 use App\Repositories\AboutInterface;
 use App\Repositories\BlogInterface;
@@ -404,6 +405,19 @@ class AdminController extends Controller
 
 
     /*------------Blog Part End here ------------------------- */
+    /*------------subscriber Part start here ------------------------- */
+
+    public function subscriberEmail(){
+        $data = Subscriber::all();
+        return view('backend.subscriber.index',compact('data'));
+    }
+
+
+
+
+
+
+    /*------------subscriber Part end here ------------------------- */
 
     public $link  = '';
     public function Url(Slider $slider){

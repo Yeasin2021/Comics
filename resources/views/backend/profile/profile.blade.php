@@ -1,8 +1,12 @@
 @extends('backend.app')
 
+@section('title')
+    User Profile Settings
+@endsection
+
 @section('content')
 
- 
+ @include('backend.include.breadcrumb',['title' => 'User Profile'])
                 <div class="row m-3" >
                   
                     <div class="col-md-4 m-auto">
@@ -27,17 +31,17 @@
                             <div>
                                 <hr> </div>
                             <div class="card-body"> 
-                                 <form class="form-horizontal form-material" action="" method="post" enctype="multipart/form-data">
+                                 <form class="form-horizontal form-material" action="{{ route('profile-text-post') }}" method="post" enctype="multipart/form-data">@csrf
                                             <div class="form-group">
                                                 <label class="col-md-12">Full Name</label>
                                                 <div class="col-md-12">
-                                                    <input type="text" placeholder="Avi" class="form-control form-control-line" name="name">
+                                                    <input type="text" placeholder="Avi" class="form-control form-control-line" name="name" value="{{ Auth::user()->name }}">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="example-email" class="col-md-12">Email</label>
                                                 <div class="col-md-12">
-                                                    <input type="email" placeholder="avi@admin.com" class="form-control form-control-line" name="email" id="example-email">
+                                                    <input type="email" placeholder="avi@admin.com" class="form-control form-control-line" name="email" id="example-email" value="{{ Auth::user()->email }}">
                                                 </div>
                                             </div>
                                            

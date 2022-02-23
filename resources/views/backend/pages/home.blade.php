@@ -1,13 +1,14 @@
 
 @extends('backend.app')
-@section("content")
+@section('title')
+    Admin's Dashboard
+@endsection
 
+@section("content")
+@include('backend.include.breadcrumb',['title' => 'Dashboard'])
 
 <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <!-- Row -->
+                
                 <div class="card-group">
                     <div class="card">
                         <div class="card-body">

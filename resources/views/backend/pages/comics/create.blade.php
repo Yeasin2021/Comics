@@ -65,10 +65,14 @@
 </style>
 
 @endpush 
+
+@section('title')
+    Admin's Comics Create  Page
+@endsection
+
 @section('content')
 
-<!-- Row -->
-<!-- Row -->
+@include('backend.include.breadcrumb',['title' => 'Comics Create  Page'])
 <form class="form p-t-20" action="{{route('comics-store')}}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="row m-3">

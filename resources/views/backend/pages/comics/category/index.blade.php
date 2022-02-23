@@ -1,6 +1,7 @@
 
 
 @extends('backend.app')
+
 @push('css')
 <style>
     .table > tbody > tr > td {
@@ -8,7 +9,14 @@
 }
 </style>
 @endpush
+
+@section('title')
+    Admin's Comics Category Index Page
+@endsection
+
+
 @section('content')
+@include('backend.include.breadcrumb',['title' => 'Comics Category Index Page'])
 <div class="row m-3">
                     <div class="col-12">
                         <div class="card">

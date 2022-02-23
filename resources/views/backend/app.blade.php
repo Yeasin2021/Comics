@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('admins/assets/')}}/images/favicon.png">
-    <title>Admin Press Admin Template - The Ultimate Bootstrap 4 Admin Template</title>
+    <title>@yield('title')</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('admins/assets/')}}/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- morris CSS -->
@@ -67,7 +67,7 @@
             <!-- ============================================================== -->
             <!-- Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
-            @include('backend.include.breadcrumb')
+            {{-- @include('backend.include.breadcrumb') --}}
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->

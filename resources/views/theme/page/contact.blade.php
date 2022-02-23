@@ -13,7 +13,7 @@
                       </h5>
                     </div>
                     <div>
-                      <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                      <form action="{{ route('subscriberMail') }}" method="post">@csrf
                         <div class="row">
                           <div class="col-md-12 mb-3">
                             <div class="form-group">
@@ -35,15 +35,11 @@
                           </div>
                           <div class="col-md-12">
                             <div class="form-group">
-                              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message" id="editor"></textarea>
                               <div class="validate"></div>
                             </div>
                           </div>
-                          <div class="col-md-12 text-center mb-3">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div>
-                          </div>
+                          
                           <div class="col-md-12 text-center">
                             <button type="submit" class="button button-a button-big button-rouded">Send Message</button>
                           </div>

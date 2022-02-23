@@ -1,9 +1,16 @@
 @extends('backend.app')
 
+
+@section('title')
+    Admin's Blog Create Page
+@endsection
+
+
+
 @section('content')
 
- <!-- Row -->
-                <!-- Row -->
+ @include('backend.include.breadcrumb',['title' => 'Blog Create Page'])
+
         <form class="form p-t-20" action="{{route('blog.store')}}" method="post" enctype="multipart/form-data">@csrf
         <div class="row m-3">
             

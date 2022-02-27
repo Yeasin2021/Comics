@@ -13,4 +13,4 @@ use Illuminate\Support\Facades\DB;
 
 
 
-Route::get('/test',[ApiController::class,'getSliderContent'])->name('admin.test');
+Route::get('/api-imp',[ApiController::class,'getData']);

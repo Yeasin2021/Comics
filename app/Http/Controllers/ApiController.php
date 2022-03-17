@@ -10,6 +10,9 @@ use App\Models\Profile;
 use App\Models\Slider;
 use App\Models\Subscriber;
 use Illuminate\Http\Request;
+// use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class ApiController extends Controller
 {
@@ -27,4 +30,50 @@ class ApiController extends Controller
             'data'    => $data,
         ]);
     }
+
+
+
+    public function login(Request $request){
+        $validator = Validator::make($request->all(),[
+            'email' => ['required'],
+            'password' => ['required'],
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'err_message' => 'validation error',
+                'data' => $validator->errors(),
+            ],422);
+        }else{
+            $req_data  = request()->only('email','password');
+        if(Auth::attempt($req_data)){
+            $user = Auth::user();
+            $data['access_token'] = $user->createToken('accessToken')->accessToken;
+            $data['user'] = $user;
+            return response()->json($data,200);
+        }else{
+            $data['message'] = 'user not exits';
+    
+            $data['data']['password']= ['passowrd is incorrect'];
+            return response()->json($data,401);
+            }
+        }
+    
+      }
+    
+      public function logout(){
+        Auth::user()->token()->revoke();
+        return response()->json([
+            'message' => 'logout',
+        ], 200);
+    }
+
+
+
+
+
+
+
+
+
+
 }

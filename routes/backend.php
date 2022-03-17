@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\ProfileController;
 use App\Models\Count;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
+use Laravel\Socialite\Facades\Socialite;
 
 
 

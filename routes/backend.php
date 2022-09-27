@@ -60,7 +60,7 @@ Route::any('/admin-blog-published-{id}',[AdminController::class,'blogPublished']
 Route::any('/admin-blog-unpublished-{id}',[AdminController::class,'blogUnpublished'])->name('blog.unpublished');
 
 // Route::any('/admin-blog-count-{id}',[AdminController::class,'blogCount'])->name('count');
-Route::any('/admin-blog-details-{id}',[AdminController::class,'singleBlogDetails'])->name('blog-details');
+// Route::any('/admin-blog-details-{id}',[AdminController::class,'singleBlogDetails'])->name('blog-details');
 
 /*---------------------------------Blog part End here here -------------------------------*/
 
@@ -109,7 +109,7 @@ Route::any('admin-comics-category-unpublished-{id}',[ComicsController::class,'ca
 Route::get('admin-app-name-edit-{id}',[ComicsController::class,'appNameEdit'])->name('comics-app-name-edit');
 Route::post('admin-app-name-update-{id}',[ComicsController::class,'appNameUpdate'])->name('comics-app-name-update');
 
-Route::any('/admin-comic-details-{id}',[ComicsController::class,'singleComicsDetails'])->name('comics-details');
+// Route::any('/admin-comic-details-{id}',[ComicsController::class,'singleComicsDetails'])->name('comics-details');
 
 
 // Profile Route start here 
@@ -119,10 +119,13 @@ Route::get('admin-user-profile',function(){
 })->name('profile-form');
 
 Route::post('admin-profile-post',[ProfileController::class,'profileUpdate'])->name('profile-post');
+Route::post('admin-profile-text-post',[ProfileController::class,'contentText'])->name('profile-text-post');
 
 
 // Profile Route End  here 
 
+//Email and subscriber start here 
+Route::get('admin-subscriber',[AdminController::class,'subscriberEmail'])->name('subscriber');
 
 
 
@@ -134,3 +137,7 @@ Route::post('admin-profile-post',[ProfileController::class,'profileUpdate'])->na
 Route::get('logout',[AuthController::class,'logout'])->name('logout');
 
 });
+
+
+// Route::any('/comic-details-{id}',[ComicsController::class,'singleComicsDetails'])->name('comics-details');
+// Route::any('/blog-details-{id}',[AdminController::class,'singleBlogDetails'])->name('blog-details');

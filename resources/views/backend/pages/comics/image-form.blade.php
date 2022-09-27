@@ -1,4 +1,9 @@
 @extends('backend.app') 
+@section('title')
+    Admin's Comics DropZone Image
+@endsection
+
+
 @push('css')
 <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
 <style>
@@ -12,7 +17,7 @@
 </style>
 @endpush 
 @section('content')
-
+@include('backend.include.breadcrumb',['title' => 'Comics DropZone  Image'])
 
     <div class="row">
     <div class="col-md-8 offset-md-2 center">

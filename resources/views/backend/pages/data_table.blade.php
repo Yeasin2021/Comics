@@ -1,5 +1,11 @@
 
 @extends('backend.app')
+
+@section('title')
+    Admin's Slider Index Table  Page
+@endsection
+
+
 @push('css')
 <style>
     .table > tbody > tr > td {
@@ -8,6 +14,7 @@
 </style>
 @endpush
 @section('content')
+@include('backend.include.breadcrumb',['title' => 'Slider Index Table  Page'])
 <div class="row m-3">
                     <div class="col-12">
                         <div class="card">

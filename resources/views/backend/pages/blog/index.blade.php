@@ -1,8 +1,13 @@
 
 @extends('backend.app')
 
-@section('content')
+@section('title')
+    Admin's Blog Index Page
+@endsection
 
+
+@section('content')
+@include('backend.include.breadcrumb',['title' => 'Blog Index Page'])
 <div class="card m-3">
         <div class="card-body">
             

@@ -1,4 +1,10 @@
-@extends('backend.app') 
+@extends('backend.app')
+
+@section('title')
+    Admin's Comics Edit  Page
+@endsection
+
+
 @push('css')
 <style>
     * {
@@ -67,8 +73,7 @@
 <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
 @endpush @section('content')
 
-<!-- Row -->
-<!-- Row -->
+@include('backend.include.breadcrumb',['title' => 'Comics Edit  Page'])
 <form class="form p-t-20" action="{{route('comics-update',$edit->id)}}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="row m-3">
@@ -91,13 +96,13 @@
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fas fa-tape"></i></div>
                             <select class="form-control" name="comics_category_id">
-                            
+
                                 @foreach ($comics as $item)
                                      <option value="{{ $item->id }}" {{ $edit->id == $item->id ? 'selected':'' }}>{{$item->comics_category }}</option>
                                 @endforeach
-                              
+
                             </select>
-                            
+
                         </div>
                     </div>
                     <div class="form-group">
@@ -127,17 +132,17 @@
                         <p id="num-of-files">No Files Chosen</p>
                         @php
                             $image = App\Models\Comics::where('id',$edit->id)->first();
-                           
+
                         @endphp
-                       
-                        
+
+
                         <div id="images">
                         <span>
                              @foreach(json_decode($image->image) as $key=>$item)
                                 <img src="{{ asset('/image/comics_image/'.$item) }}" style="height:100px; width=100px; pading:10px;"/>
                             @endforeach
                         </span>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -164,7 +169,7 @@
             </div>
         </div>
 
-        
+
     </div>
 </form>
 

@@ -1,9 +1,15 @@
 @extends('backend.app')
 
+
+@section('title')
+    Admin's About Page
+@endsection
+
+
 @section('content')
 
- <!-- Row -->
-                <!-- Row -->
+@include('backend.include.breadcrumb',['title' => 'About Create Page'])
+
                 <div class="row m-3">
                     <div class="col-lg-6">
                         <div class="card">

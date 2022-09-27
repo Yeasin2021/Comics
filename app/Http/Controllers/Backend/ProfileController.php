@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Profile;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,5 +32,52 @@ class ProfileController extends Controller
                 
         }
     }
-}
+
+   }
+
+    public function contentText(Request $request){
+        //$user = Auth::user();
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required',
+            
+        ]);
+        
+        if ($validator->fails()) {
+
+           $messages = $validator->messages();
+        
+                foreach ($messages->all() as $message)
+                {
+                    toastr()->error ( $message, 'Error');
+                }
+        
+             return redirect()->back()->withInput();
+       }
+
+       try{
+        $update = Auth::user();
+            $update->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                 
+            ]);
+        
+       
+        
+        toastr()->success(" Successfully Profile Updated ");
+        return redirect()->route('admin.home');
+
+        }
+        catch(Exception $error){
+        toastr()->error($error->getMessage());
+        return redirect()->back();
+        }
+
+
+    }
+
+
+
 }

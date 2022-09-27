@@ -1,9 +1,14 @@
 @extends('backend.app')
 
+@section('title')
+    Admin's Blog Edit Page
+@endsection
+
+
 @section('content')
 
- <!-- Row -->
-                <!-- Row -->
+@include('backend.include.breadcrumb',['title' => 'Blog Edit Page'])
+
         <form class="form p-t-20" action="{{route('blog.update',$edit->id)}}" method="post" enctype="multipart/form-data">@csrf
         <div class="row m-3">
             
